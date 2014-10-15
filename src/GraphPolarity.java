@@ -60,13 +60,6 @@ import org.openide.util.Lookup;
  * @authors Samantha and Laura
  */
 
-/**
- * to speed things up, 
- * load graph once
- * export only what's necessary
- * 
- */
-
 public class GraphPolarity { 
     private final ProjectController pc;
     private final Workspace workspace;
@@ -177,12 +170,7 @@ public class GraphPolarity {
         view = filterController.filter(giantCompQuery);
         query = giantCompQuery;
         graphModel.setVisibleView(view);
-        /*Graph g = graphModel.getGraphVisible();
-        
-        System.out.println("Nodes: " + g.getNodeCount());
-        System.out.println("Edges: " + g.getEdgeCount());*/
-        
-        
+
         // rank nodes by degree
         System.out.println("Ranking nodes by degree");
         Ranking degreeRanking = rankingController.getModel().getRanking(Ranking.NODE_ELEMENT, Ranking.DEGREE_RANKING);
@@ -421,34 +409,6 @@ public class GraphPolarity {
             }
             */
         }
-        
-        
-        /*
-        for (Node n : graph.getNodes()) { 
-            if (n.getAttributes().getValue("cluster")==null) {
-                System.out.println("the node n is: " + n );
-                System.out.println("the node id is: " + n.getId());
-                int nid = n.getId(); 
-                System.out.println("the node w/ this id is: " + graph.getNode(nid)); 
-                //graph.removeNode(graph.getNode(nid));
-            }
-        }
-        */
-        
-        /*
-        //add everything to an ArrayList first b/c the graph locks otherwise
-        ArrayList<Node> remove = new ArrayList();
-        for (Node n : graph.getNodes()) { 
-            String name = (String)n.getAttributes().getValue("id");
-            if (name.contains("CENTER")) { 
-                remove.add(n);
-            }
-        }
-        for (Node n : remove) { 
-            graph.removeNode(n);
-        }
-        */
-        
     }
     
     public void remove_outliers(Graph graph) {
@@ -485,13 +445,6 @@ public class GraphPolarity {
         for (Node n : remove) { 
             graph.removeNode(n);
         }
-        
-        /*
-        for (Object d : distances) { 
-            System.out.println(d);
-        }
-        */
-        
         /*
         for (Node n : graph.getNodes()) { 
                 double xco = n.getNodeData().x();
@@ -515,6 +468,7 @@ public class GraphPolarity {
      * k cluster, and there will be no outEdges, resulting in a polarity of 1.0
      * this is also true if k=3 (the appropriate num of k)
      * in this situation, we don't know which is better k value
+     * Need to improve this method. Actual calc_polarity listed below. 
      * 
      * @param graph
      * @param k 
