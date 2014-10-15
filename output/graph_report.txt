@@ -1,0 +1,28 @@
+Importing graph from  co-rted.csv
+Graph imported successfully
+Filtering graph by giant component and degree gt5
+Resulting filtered graph has:
+Nodes: 1017 (81.55573376102646%)
+Edges: 52317 (1.9342322980657678%)
+
+Running modularity algorithm
+There are 5 modularity groups
+Reporting the size of the groups as %s of filtered nodes
+Group 0
+Nodes: 235 (23.107177974434613%)
+Color java.awt.Color[r=176,g=216,b=16]
+Group 1
+Nodes: 333 (32.743362831858406%)
+Color java.awt.Color[r=176,g=16,b=216]
+Group 2
+Nodes: 21 (2.0648967551622417%)
+Color java.awt.Color[r=216,g=16,b=16]
+Group 3
+Nodes: 3 (0.2949852507374631%)
+Color java.awt.Color[r=16,g=216,b=96]
+Group 4
+Nodes: 425 (41.789577187807275%)
+Color java.awt.Color[r=16,g=96,b=216]
+Ranking nodes by degreeLaying out the graphCreating output/graph.gexf
+Creating output/graph.png
+Creating output/graph_labels.png
